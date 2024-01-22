@@ -1,5 +1,5 @@
 public class Rettangolo extends Forma{
-    int area = calcolaArea(3, 5);
+    int area = calcolaAreaRettangolo(3, 5);
 
     @Override
     public String toString() {
