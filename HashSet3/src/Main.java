@@ -19,6 +19,8 @@ public class Main {
             }
         }
         System.out.println(carSet);
+        carSet.clear();
+        System.out.println(carSet);
 
         HashSet carSet2 = cars();
         String car1 = "Opel";
@@ -30,6 +32,8 @@ public class Main {
                 carSet2.remove(car1);
             }
         }
+        System.out.println(carSet2);
+        carSet2.clear();
         System.out.println(carSet2);
     }
 
