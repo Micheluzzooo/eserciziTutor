@@ -11,13 +11,13 @@ public class Main {
         System.out.println("Year: " + printYear);
 
         String printMonth = String.valueOf(data.getMonth());
-        System.out.println("Year: " + printMonth);
+        System.out.println("Month: " + printMonth);
 
         String printDay = String.valueOf(data.getDayOfMonth());
-        System.out.println("Year: " + printDay);
+        System.out.println("Day: " + printDay);
 
         String printDayOfWeek = String.valueOf(data.getDayOfWeek());
-        System.out.println("Year: " + printDayOfWeek);
+        System.out.println("Day of week: " + printDayOfWeek);
 
     }
 }
