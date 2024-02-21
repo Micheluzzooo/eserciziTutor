@@ -9,15 +9,11 @@
 
 public class Main {
     public static void main(String[] args) {
-        User user1 = new User("Luca", 30);
-        User user2 = new User("Mario", 44);
+        User user = User.getInstance();
+        User user2 = User.getInstance();
+
+        System.out.println(user.getNome() + " " + user.getEta());
 
         user2.setNome("Luigi");
-        user2.setEta(32);
-
-        user1.stampaInfo();
-        System.out.println();
-        user2.stampaInfo();
-
-    }
-}
+        user2.setEta(18);
+        System.out.println(user2);
