@@ -1,11 +1,21 @@
 public class User {
 
+    public static User istance;
+
     private String nome;
     private int eta;
 
-    public User(String nome, int eta) {
-        this.nome = nome;
-        this.eta = eta;
+    private User() {
+
+    }
+    
+    public static User getInstance() {
+        if(istance == null) {
+            istance = new User();
+            istance.setNome("Mario");
+            istance.setEta(33);
+        }
+        return istance;
     }
 
     public String getNome() {
@@ -24,8 +34,11 @@ public class User {
         this.eta = eta;
     }
 
-    public void stampaInfo() {
-        System.out.println("Nome: " + nome);
-        System.out.println("Età: " + eta);
+    @Override
+    public String toString() {
+        return "User{" +
+                "nome='" + nome + '\'' +
+                ", eta=" + eta +
+                '}';
     }
 }
