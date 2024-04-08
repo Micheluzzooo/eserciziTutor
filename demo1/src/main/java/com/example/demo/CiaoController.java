@@ -1,17 +1,28 @@
 package com.example.demo;
 
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.OffsetDateTime;
 
 @RestController
 @RequestMapping("/v1/")
 public class CiaoController {
 
-    @RequestMapping(method = RequestMethod.GET, path = "ciao")
-    public User ciao(@RequestParam String nome, @RequestParam String provincia) {
-        User user = new User("Giuseppe", "Lombardia", "Ciao Giuseppe, com'è il tempo in Lombardia?");
+    @RequestMapping(method = RequestMethod.GET, path = "ciao/{provincia}")
+    public User ciao(@RequestParam String nome, @PathVariable("provincia") String provincia, @RequestParam String date) {
+        String saluto = "ciao " + nome + " com'è il tempo a/in " + provincia + "?";
+        User user = new User(nome, provincia, saluto, convertStringToDate(date));
         return user;
+
+    }
+
+    private OffsetDateTime convertStringToDate(String date) {
+        try {
+            OffsetDateTime date1 = OffsetDateTime.parse(date);
+            return date1;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
     }
 }
