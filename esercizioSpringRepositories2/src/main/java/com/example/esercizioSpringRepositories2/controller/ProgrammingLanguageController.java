@@ -30,4 +30,23 @@ public class ProgrammingLanguageController {
         return ResponseEntity.ok(languages);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ProgrammingLanguage> setInventor(@PathVariable Long id, @RequestParam String inventor) {
+        Optional<ProgrammingLanguage> optionalLanguage = programmingLanguageRepository.findById(id);
+        if (optionalLanguage.isPresent()) {
+            ProgrammingLanguage existingLanguage = optionalLanguage.get();
+            existingLanguage.setInventor(inventor);
+            programmingLanguageRepository.save(existingLanguage);
+            return ResponseEntity.ok(existingLanguage);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/getTwo")
+    public ResponseEntity<Page> getList() {
+        Page languages = programmingLanguageRepository.findAll(PageRequest.of(0, 2));
+        return ResponseEntity.ok(languages);
+    }
+
 }
