@@ -43,9 +43,10 @@ public class ProgrammingLanguageController {
         }
     }
 
-    @GetMapping("/getTwo")
-    public ResponseEntity<Page> getList() {
-        Page languages = programmingLanguageRepository.findAll(PageRequest.of(0, 2));
+    @GetMapping("/getPage")
+    public ResponseEntity<List<ProgrammingLanguage>> getAllLanguage(@PageableDefault(page = 0, size = 2) Pageable pageable) {
+        Page<ProgrammingLanguage> languagesPage = programmingLanguageRepository.findAll(pageable);
+        List<ProgrammingLanguage> languages = languagesPage.getContent();
         return ResponseEntity.ok(languages);
     }
 
