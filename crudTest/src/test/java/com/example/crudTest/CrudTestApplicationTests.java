@@ -144,11 +144,11 @@ class StudentControllerTest {
 				.andReturn();
 		Student studentFromResponse = objectMapper.readValue(resultOne.getResponse().getContentAsString(), Student.class);
 
-		// Controlliamo lo studente dal PUT
+		
 		assertThat(studentFromResponse.getId()).isEqualTo(student.getId());
 		assertThat(studentFromResponse.getName()).isEqualTo(newName);
 
-		// Facciamo il get dello studente con GET
+		
 		Student studentFromResponseGet = getStudentFromId(student.getId());
 		assertThat(studentFromResponseGet.getId()).isEqualTo(student.getId());
 		assertThat(studentFromResponseGet.getName()).isEqualTo(newName);
