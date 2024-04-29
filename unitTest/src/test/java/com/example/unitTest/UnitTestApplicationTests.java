@@ -53,6 +53,8 @@ class UtenteControllerTest {
 		MvcResult result = createUtenteRequest(utente);
 		Utente utenteFromResponse = objectMapper.readValue(result.getResponse().getContentAsString(), Utente.class);
 
+		assertThat(utenteFromResponse.getName()).isEqualTo(utente.getName());
+		assertThat(utenteFromResponse.getEmail()).isEqualTo(utente.getEmail());
 		assertThat(utenteFromResponse).isNotNull();
 		assertThat(utenteFromResponse.getId()).isNotNull();
 
