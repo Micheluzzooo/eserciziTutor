@@ -1,0 +1,7 @@
+com\example\middleware2\Middleware2Application.class
+com\example\middleware2\configuration\WebConfig.class
+com\example\middleware2\interceptors\MonthInterceptor.class
+com\example\middleware2\interceptors\APILoggingInterceptor.class
+com\example\middleware2\entities\MonthEntity.class
+com\example\middleware2\controller\BasicController.class
+com\example\middleware2\controller\MonthController.class
