@@ -1,11 +1,9 @@
 package com.example.middleware2.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class MonthEntity {
 
@@ -13,4 +11,11 @@ public class MonthEntity {
     private String englishName;
     private String italianName;
     private String germanName;
+
+    public MonthEntity(Integer monthNumber, String englishName, String italianName, String germanName) {
+        this.monthNumber = monthNumber;
+        this.englishName = englishName;
+        this.italianName = italianName;
+        this.germanName = germanName;
+    }
 }
