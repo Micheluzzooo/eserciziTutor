@@ -34,7 +34,7 @@ public class MonthInterceptor implements HandlerInterceptor {
             boolean monthFound = false;
             for (MonthEntity m : months) {
                 if (monthNumber.equals(m.getMonthNumber().toString())) {
-                    request.setAttribute("selectedMonth", monthNumber);
+                    request.setAttribute("monthNumber", monthNumber);
                     response.setStatus(HttpServletResponse.SC_OK);
                     monthFound = true;
                     break;
@@ -45,7 +45,7 @@ public class MonthInterceptor implements HandlerInterceptor {
                 emptyMonth.setEnglishName("nope");
                 emptyMonth.setItalianName("nope");
                 emptyMonth.setGermanName("nope");
-                request.setAttribute("selectedMonth", emptyMonth);
+                request.setAttribute("monthNumber", emptyMonth);
                 response.setStatus(HttpServletResponse.SC_OK);
             }
         }
