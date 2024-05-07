@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.apache.commons.lang3.RandomStringUtils;
 import java.util.List;
 import java.util.Random;
 
@@ -28,9 +28,9 @@ public class FlightController {
         Random random = new Random();
         for (int i = 0; i < 50; i++) {
             Flight flight = new Flight();
-            flight.setDescription(String.valueOf(random.ints()));
-            flight.setFromAirport(String.valueOf(random.ints()));
-            flight.setToAirport(String.valueOf(random.ints()));
+            flight.setDescription(RandomStringUtils.randomAlphabetic(10));
+            flight.setFromAirport(RandomStringUtils.randomAlphabetic(3));
+            flight.setToAirport(RandomStringUtils.randomAlphabetic(3));
             flight.setStatus(Flight.Status.ON_TIME);
             flightRepository.save(flight);
         }
