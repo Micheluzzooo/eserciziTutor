@@ -1,0 +1,14 @@
+server:
+  port: 4000
+  welcomeMsg: Hello from Test
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+server:
+  port: 5000
+  welcomeMsg: Hello from Prod
